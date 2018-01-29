@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block body_contents %}
+<script src="{{url_for('static',filename='funds.js')}}"></script>
+		<div class="container">
+			<div class="column">
+				<h2>Choose Account</h2>
+				<form action="{{url_for('funds')}}" method="post">
+					{% for acc in accounts %}
+						<input type="radio" name="account" value="{{acc}}">{{acc}}<br>
+					{% endfor %}
+					<br>
+					<button type="button" onclick="add_account()">Add Account</button>
+					<br>
+				<h2>Transaction</h2>
+					<input type="radio" name="type" value="withdraw">Withdraw Funds<br>
+					<input type="radio" name="type" value="deposit">Deposit Funds<br>
+					<br>
+				<h2>Amount</h2>
+					$<input type="number" name="amount" value="0" min="0" oninput="validity.valid||(value='')">
+					<br><br>
+				<input type="button" value=Process onclick="confirm_transaction(this.form)">
+				<input type="submit" id="submit" style="display:none;">
+				</form>
+			</div>
+			<div class="column" style="margin-left:5%;width:45%">
+				<h2>Add an account</h2>
+				<form action="{{url_for('add_acc')}}" method="post">
+					<h4>Account Name</h4>
+					<input type="text" name="name" value="">
+					<h4>Account Number</h4>
+					<input type="number" name="num" value="" min="0" oninput="validity.valid||(value='')">
+					<h4>Account BSB</h4>
+					<input type="number" name="bsb" value="" min="0" oninput="validity.valid||(value='')">
+					<br><br>
+					<input type="submit">
+				</form>
+			</div>
+		</div>
+
+{% endblock %}

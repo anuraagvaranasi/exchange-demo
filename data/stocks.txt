@@ -1,0 +1,9 @@
+goog 25
+aapl 5
+msft 4
+
+
+
+
+
+amzn 3

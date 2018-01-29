@@ -1,0 +1,55 @@
+.container{
+	height: 100px;
+	margin-left: 10%;
+	margin-right: 10%;
+}
+
+ul{
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+li{
+	float:right;
+}
+
+li a{
+	display: block;
+	color: black;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+}
+
+h2{
+	border-bottom:1px solid lightblue;
+}
+
+table, th, td{
+	text-align: left;
+	border: 1px solid;
+	border-collapse: collapse;
+}
+
+table{
+	width: 50%;
+	table-layout: fixed;
+}
+
+th{
+	font-weight: normal;
+}
+
+td{
+	width: 20%;
+}
+
+.column{
+	float: left;
+	width: 50%;
+}
+
+th input{
+	border: hidden;
+}

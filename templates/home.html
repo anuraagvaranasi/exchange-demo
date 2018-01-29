@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block body_contents %}
+		<div class="container">
+			<h2>Funds</h2>
+			<h4>{{"$%.2f"|format(funds)}}</h4>
+			<h2>Stocks</h2>
+			<table>
+				<tr>
+					<th style="font-weight:bold;">Name</th>
+					<th style="font-weight:bold;">Amount</th>
+					<th style="font-weight:bold;">Stock Value (USD)</th>
+					<th style="font-weight:bold;">Portfolio Value (USD)</th>
+
+				{% for entry in stocks|sort %}
+				<tr>
+					<th>{{entry.upper()}}</th>
+					<th>{{stocks[entry]}}</th>
+					<th>${{values[entry]}}</th>
+					<th>{{"$%.2f"|format(values[entry]*stocks[entry])}}</th>
+					
+
+				</tr>
+				{% endfor %}
+				<tr>
+					<th style="border-left:hidden;border-bottom:hidden;">
+					<th style="border-left:hidden;border-bottom:hidden;">	
+					<th><b>Total<b></th>
+					<th><b>${{"%.2f"|format(total)}}</b></th>
+			</table>
+
+		</div>
+
+{% endblock %}

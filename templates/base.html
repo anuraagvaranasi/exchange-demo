@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+	<link href="{{url_for('static',filename='style.css')}}" rel="stylesheet">
+	<head>
+	</head>
+	<body>
+		<div class="container">
+			<ul>
+				<h1><li style="float:left;">Exchange Demo</li></h1>
+				<h3>
+					<li><a href="{{url_for('market')}}"><u>Buy/Sell</u></a></li>
+					<li><a href="{{url_for('funds')}}"><u>Deposit/Withdraw</u></a></li>
+					<li><a href="{{url_for('home')}}"><u>Home</u></a></li>
+				</h3>
+			</ul>
+		</div>
+
+		{% block body_contents %}
+		{% endblock %}
+
+	</body>
+
+</html>

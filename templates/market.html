@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block body_contents %}
+<script src="{{url_for('static',filename='buy_sell.js')}}"></script>
+<div class="container">
+	<form action="{{url_for('market')}}" method="post">
+		<h2>Funds</h2>
+		<h4>{{"$%.2f"|format(funds)}}</h4>
+		<h2>Current Portfolio</h2>
+		<table>
+			<tr>
+				<th style="font-weight:bold;">Name</th>
+				<th style="font-weight:bold;">Amount</th>
+				<th style="font-weight:bold;">Stock Value (USD)</th>
+			</tr>
+			{% for entry in stocks|sort %}
+			<tr>
+				<th>{{entry.upper()}}</th>
+				<th>{{stocks[entry]}}</th>
+				<th>${{values[entry]}}</th>
+				<th><input type="radio" name="buy" value="{{entry}}">Buy</th>
+				<th><input type="radio" name="sell" value="{{entry}}">Sell</th>
+			</tr>
+			{% endfor %}
+		</table>
+		<h2>Search</h2>
+		<input type="text" name="search" style="width:30%" default=""><br><br>
+		<table>
+			<tr>
+				<th style="font-weight:bold;">Name</th>
+				<th style="font-weight:bold;">Stock Value (USD)</th>
+			</tr>
+			{% for entry in search|sort %}
+			<tr>
+				<th>{{entry.upper()}}</th>
+				<th>${{search[entry]}}</th>
+				<th><input type="radio" name="buy" value="{{entry}}">Buy</th>
+			</tr>
+			{% endfor %}
+		</table>
+		<h2></h2>
+		<input type="number" name="buy_amount" style="display:none;" value="0" min="0" oninput="validity.valid||(value='')">
+		<input type="number" name="sell_amount" style="display:none;" value="0" min="0" oninput="validity.valid||(value='')">
+		<input type="button" value=Process onclick="confirm_buy_sell(this.form)">
+		<input type="submit" id="submit" style="display:none;">
+	</form>
+</div>
+{% endblock %}
