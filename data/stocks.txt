@@ -1,9 +1,3 @@
-goog 25
-aapl 5
-msft 4
-
-
-
-
-
-amzn 3
+goog 30
+msft 7
+aapl 9
