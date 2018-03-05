@@ -1,3 +1,5 @@
-goog 30
+goog 36
 msft 7
-aapl 9
+amzn 0
+aapl 0
+e -9939
